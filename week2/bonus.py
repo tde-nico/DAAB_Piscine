@@ -181,7 +181,7 @@ class	Nashville_Filter:
 		return Color(*hsl_to_rgb(h, s, l), 1).contrast(self.contrast).get_rgba()
 
 #'''
-'''
+#'''
 
 import cv2
 
@@ -219,6 +219,7 @@ def replace_color(img, hl=0, sl=0, vl=0, hu=0, su=0, vu=0, nred=0, ngreen=0, nbl
 	upper = np.array([hu, su, vu])
 	color = cv2.inRange(hsv, lower, upper)
 	img[color>0] = (nblue, ngreen, nred)
+	return img
 
 
 def	amaro_filter(img, hue=1.1, saturation=1.5, contrast=0.9, brightness=10):
@@ -244,6 +245,11 @@ def toaster_filter(img, hue=1, saturation=0.9, contrast=1.4, brightness=-20):
 	img = vignette(img,250,250,0,0.3)
 	return img
 
+im = cv2.imread("42_photo.png")
+img = nashville_filter(im)
+plt.imshow(img)
+plt.show()
+
 #'''
 '''
 
@@ -260,6 +266,7 @@ img = plt.imread("week2/42_photo.png")
 plt.imshow(img)
 plt.show()
 #'''
+'''
 
 from PIL import Image
 import pilgram
