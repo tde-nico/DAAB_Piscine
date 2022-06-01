@@ -15,7 +15,7 @@ def	gen_binded_matrix(n, m):
 
 binded_matrix = gen_binded_matrix(415, 276)
 
-img_matrix = plt.imread("path/to/42_photo.png")
+img_matrix = plt.imread("42_photo.png")
 matrix_mul = np.dot(1/255, np.dot(binded_matrix, img_matrix))
 
 print(random_matrix)
